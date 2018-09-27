@@ -1,0 +1,9 @@
+<html>
+<body>
+{%import 'macro.html' as macro%} 
+  -------------------------</br>
+	{%for i in tlist%}
+		{{i['name']}}--------{{macro.deal_age(i['age'])}}-----{{macro.deal_sex(i['sex'])}}</br>
+	{%endfor%} 
+</body>
+</html>

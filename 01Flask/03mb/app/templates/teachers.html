@@ -1,0 +1,13 @@
+<html>
+<body>
+	{% for s in slist %}
+	    {{s['name']}}-----
+	    {{s['age']}}------
+	    {% if s['sex']== 1 %}
+	    	男
+	    {% else%}
+	    	女
+	    {%endif%}</br>
+	    {%endfor%}
+</body>
+</html>

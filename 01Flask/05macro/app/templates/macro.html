@@ -1,0 +1,10 @@
+{% macro deal_age(age)%}
+	{{str(age)+'岁'}}
+{% endmacro %}
+{% macro deal_sex(sex)%}
+	{%if sex==1 %}
+		男
+	{%else%}
+		女
+	{%endif%}
+{%endmacro%}

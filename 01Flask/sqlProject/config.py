@@ -1,0 +1,4 @@
+WTF_CSRF_ENABLED = True
+SECRET_KEY='www.embsky.com'
+SQLALCHEMY_DATABASE_URI='mysql://root:123456@localhost/embsky'
+SQLALCHEMY_TRACK_MODIFICATIONS=False

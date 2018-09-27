@@ -1,0 +1,19 @@
+<html>
+<body>
+<table border='1'>
+	<th>
+		<td>名字</td>
+	</th>
+		{% for s in slist %}
+	<tr>
+		<td> 
+		{{ slist.index(s)+1 }}
+		<td>	
+			{{s}}
+		</td>
+		</td>
+		{% endfor%}
+	</tr>
+</table>
+</body>
+</html>

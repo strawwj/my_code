@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <title>勇哥训练营</title>
+</head>
+<body>
+<!--导航栏-->
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color: white">
+    <div class="container">
+        <div class="navbar-header">
+            <div class="navbar-brand">
+                <span style="color:#3c763d">勇哥训练营</span>
+            </div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar-ver">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="my-navbar-ver">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">主页</a></li>
+                    <li><a href="#">社区</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">管理中心</a></li>
+                    <li><a href="#">张三</a></li>
+                    <li><a href="#">登陆</a></li>
+                    <li><a href="#">注册</a></li>
+                    <li class="divider"></li>
+                </ul>
+        </div>
+    </div>
+</nav>
+
+<!--主体-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 user-info">
+            <div class="head-img-div">
+                <div class="media">
+                    <div class="media-left ">
+                        <img src="./images/head.png" class="media-object" style="height: 64px;width: 64px">
+                    </div>
+                    <div class="media-bottom media-body">
+                        <h3 class="media-heading">
+                            <span style="color: white">尚观Uplooking</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="list-group">
+                <li class="list-group-item">专业方向<span class="badge">嵌入式</span></li>
+            </div>
+
+            <div class="list-group">
+                <li class="list-group-item">一共答题<span class="badge">12次</span></li>
+                <li class="list-group-item">平均得分<span class="badge">85分</span></li>
+                <li class="list-group-item">最高得分<span class="badge">85分</span></li>
+                <li class="list-group-item">最低得分<span class="badge">85分</span></li>
+                <li class="list-group-item">整体排名<span class="badge">千里之外</span></li>
+            </div>
+            <div>
+                <a href="#" class="btn btn-success" style="width: 100%;margin-bottom: 10px" disabled="disabled">正在答题</a>
+            </div>
+        </div>
+
+
+        <div class="col-md-8 list-group">
+            <div>
+                <h4 class="quest-num"><span class="label label-default">第1题</span></h4>
+                <h4 class="quest-remain"><span class="label label-default">还剩下99题</span></h4>
+            </div>
+            <div class="clearfix"></div>
+            <form>
+                <div class="list-group-item quest">
+                    <pre>
+请分析以下程序得出答案：
+
+include “A_MODULE.h”
+int func(int a, int b)
+{
+    returna+b;
+}
+此时，展开头文件A_MODULE.h后，为extern int func(int a, int b);
+                    </pre>
+                    <div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="A">
+                                A.输出结果是25
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="B">
+                                B.输出结果是25
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="C">
+                                C.输出结果是25
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="D">
+                                D.输出结果是25
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="change-quest">
+                    <ul class="pager">
+                        <li class="previous"><a href="#">上一题</a></li>
+                        <li class="next"><a href="#">下一题</a></li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>
