@@ -1,0 +1,72 @@
+{%extends 'base.html'%}
+
+
+{% block page_content %}
+
+<div class="main-container container clearfix">
+  <div class="content panel" id="content">
+    <div class="node">
+      <div class="node-form register-form">
+        <form action="" method="post">
+          {{form.hidden_tag()}}
+          <div class="form-group">
+            <label class="sr-only" for="user">邮箱</label>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+              </div>
+              {{form.email(type="email", class="form-control", id="user", placeholder="请输入邮箱")}}
+              {% for e in form.email.errors %}
+                    {{e}}
+              {%endfor%}
+              <!--<input type="text" class="form-control" id="user" placeholder="请输入用户名">-->
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="user">用户名</label>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              </div>
+              {{form.name(type="text", class="form-control", id="user", placeholder="请输入用户名")}}
+              <!--<input type="text" class="form-control" id="user" placeholder="请输入用户名">-->
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="pass">{{form.password.label}}</label>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+              </div>
+              {{form.password(type="password", class="form-control", id="pass", placeholder="请输入密码")}}
+              <!--<input type="text" class="form-control" id="pass" placeholder="请输入密码">-->
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="sr-only" for="pass1">{{form.password_again.label}}</label>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+              </div>
+              {{form.password_again(type="password", class="form-control", id="pass1", placeholder="密码确认")}}
+              {% for e in form.password_again.errers %}
+                {{e}}
+              {% endfor %}
+              <!--<input type="text" class="form-control" id="pass1" placeholder="立即注册">-->
+            </div>
+          </div>
+
+          <div class="form-btn text-center">
+            <!--{{form.submit(class="btn btn-default btn-submit")}}-->
+            <button type="submit" class="btn btn-default btn-submit">提交</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+

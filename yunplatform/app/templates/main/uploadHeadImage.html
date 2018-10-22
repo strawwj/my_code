@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Title</title>
+</head>
+<body>
+ <img src="{{url}}" width="500dp" height="250dp">
+ <form action="" method="post" name="file" enctype="multipart/form-data">
+ {{form.hidden_tag()}}
+ {{form.fileName}}<br>
+ {{form.file}}<br>
+ {{form.submit}}<br>
+ </form>
+</body>
+</html>

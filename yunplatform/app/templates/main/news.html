@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block page_content%}
+    <h2><small>Dear</small>&nbsp;&nbsp;{{current_user.name}}</h2>
+    <a href="{{url_for('main.post_news')}}" class="btn btn-default">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+<div class="content" id="content">
+    <div class="node-list panel">
+      <ul>
+        <li>
+          <div class="field-title clearfix">
+            <a href="#">{{news.title}}</a>
+            <div class="funlist clearfix">
+              <a href="{{url_for('main.edit_news',nid=news.id)}}" class="funedit">编辑</a>
+                {% if current_user == news.user or current_user.is_admin() %}
+                <a href="{{url_for('main.delete_news', nid=news.id)}}" class="fundel"></a>
+            </div>
+            <span><a href="{{url_for('main.user_info', id=news.user.id)}}">
+                {{news.user.name}}
+            </a>&nbsp;&nbsp;&nbsp;&nbsp;{{news.timestamp}}</span>
+          </div>
+          <p>
+            {{news.body}}
+          </p>
+        </li>
+      </ul>
+    </div>
+</div>
+{% endif %}
+{%endblock%}

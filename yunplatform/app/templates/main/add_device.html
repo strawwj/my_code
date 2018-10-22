@@ -1,0 +1,34 @@
+{%extends 'base.html'%}
+{%block page_content%}
+<div class="main-container container clearfix">
+  <div class="content panel" id="content">
+    <div class="node">
+      <h2>添加设备</h2>
+      <div class="node-form add-form">
+        <form action="" method="post">
+          {{form.hidden_tag()}}
+          <div class="form-group">
+            <label>{{form.name.label}}</label>
+            {{form.name(type="text", class="form-control")}}
+          </div>
+          <div class="form-group">
+            <label>{{form.describe.label}}</label>
+            {{form.describe(type="text", class="form-control")}}
+            <!--<input type="text" class="form-control" id="DeviceDescription" placeholder="DeviceDescription">-->
+          </div>
+          <div class="form-group">
+            <label>{{form.location.label}}</label>
+            {{form.location(type="text", class="form-control")}}
+            <!--<input type="text" class="form-control" id="DeviceAddress" placeholder="DeviceAddress">-->
+          </div>
+          <div class="form-btn text-center">
+            <button type="submit" class="btn btn-default btn-submit">添加设备</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{%endblock%}

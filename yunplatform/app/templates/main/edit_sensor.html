@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block page_content %}
+<div class="main-container container clearfix">
+  <div class="content panel" id="content">
+    <div class="node">
+      <h2>编辑设备</h2>
+      <div class="node-form edit-form">
+        <form action="" method="post">
+          {{form.hidden_tag()}}
+          <div class="form-group">
+            <label>{{form.name.label}}</label>
+            {{form.name(type="text", class="form-control")}}
+            <!--<input type="text" class="form-control" id="SensorName" placeholder="SensorName">-->
+          </div>
+          <div class="form-group">
+            <label>{{form.describe.label}}</label>
+            {{form.describe(type="text", class="form-control")}}
+            <!--<input type="text" class="form-control" id="SensorDescription" placeholder="SensorDescription">-->
+          </div>
+          <div class="form-group">
+            <label>{{form.unit.label}}</label>
+            {{form.unit(type="text", class="form-control")}}
+            <!--<input type="text" class="form-control" id="SensorType" placeholder="SensorType">-->
+          </div>
+          <div class="form-group">
+            <label>{{form.max.label}}</label>
+            {{form.max(type="text", class="form-control")}}
+            <!--<input type="text" class="form-control" id="SensorUnit" placeholder="SensorUnit">-->
+          </div>
+           <div class="form-group">
+            <label>{{form.min.label}}</label>
+            {{form.min(type="text", class="form-control")}}
+            <!--<input type="text" class="form-control" id="SensorUnit" placeholder="SensorUnit">-->
+          </div>
+          <div class="form-btn text-center">
+            <button type="submit" class="btn btn-default btn-submit">{{form.submit.label}}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+{%endblock%}
+

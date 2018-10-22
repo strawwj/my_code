@@ -1,0 +1,60 @@
+{% extends 'base.html'%}
+
+{% block page_content %}
+
+<div class="main-container container clearfix">
+
+
+  <div class="content" id="content">
+    <div class="node-list panel">
+      <div class="text-left add-article">
+        <a class="" href="{{url_for('main.post_news')}}">发表文章</a>
+      </div>
+
+
+
+<ul>
+  {%for new in news%}
+
+        <li>
+          <div class="field-title clearfix">
+            <a href="{{url_for('main.news',nid=new.id)}}">{{new.title}}</a>
+            <span>{{new.user.name}}&nbsp;&nbsp;&nbsp;&nbsp;{{new.timestamp}}</span>
+          </div>
+          <p>
+            {{new.body[:100]}}
+          </p>
+        </li>
+
+  {%endfor%}
+  </ul>
+  </div>
+  <div class="sidebar panel" id="sidebar-second">
+    <div class="block-sidebar block-sidebar-2">
+      <div class="group-btn">
+        <button type="button" class="btn btn-edit"><a href="{{url_for('main.edit_user')}}">编辑资料</a></button>
+        <button type="button" class="btn btn-edit"><a href="{{url_for('main.image')}}">上传头像</a></button>
+      <img style="float: right" src="\static\images1.jpg">
+      </div>
+      <div class="block-sidebar-views">
+        <p><span>API-KEY：</span>{{user.generate_confirmed_token()}}</p>
+        <p><span>个人介绍：</span>{{user.about_me}}</p>
+        <p><span>位置：</span>{{user.location}}</p>
+        <p><span>用户类型：</span>{{user.role.name}}</p>
+        <p><span>邮箱：</span>{{user.email}}</p>
+        <p><span>是否邮箱验证：</span>
+          {% if user.confirmed %}
+            是
+          {% else %}
+            否
+          {%endif%}
+        </p>
+        <p><span>注册时间：</span>{{user.register_time}}</p>
+        <p><span>最后访问时间：</span>{{user.access_time}}</p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock %}

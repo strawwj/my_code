@@ -1,0 +1,57 @@
+{%extends 'base.html'%}
+{% block page_content %}
+<div class="main-container container clearfix">
+  <div class="content panel" id="content">
+    <div class="node">
+      <h2>编辑个人资料</h2>
+      <div class="node-form edit-form">
+        <form action="" method="post">
+          {{form.hidden_tag()}}
+          <div class="form-group">
+            <label>{{form.email.label}}</label>
+            {{form.email(type="email", class="form-control")}}
+          </div>
+          <div class="form-group">
+            <label>{{form.name.label}}</label>
+            {{form.name(type="text", class="form-control")}}
+          </div>
+          <div class="form-group">
+            <label>{{form.password.label}}</label>
+            {{form.password(type="password", class="form-control")}}
+            <!--<input type="text" class="form-control" id="SensorDescription" placeholder="SensorDescription">-->
+          </div>
+          <div class="form-group">
+            <label>{{form.password_again.label}}</label>
+            {{form.password_again(type="password", class="form-control")}}
+            <!--<input type="text" class="form-control" id="SensorType" placeholder="SensorType">-->
+          </div>
+          <div class="form-group">
+            <label>{{form.location.label}}</label>
+            {{form.location(type="text", class="form-control")}}
+            <!--<input type="text" class="form-control" id="SensorUnit" placeholder="SensorUnit">-->
+          </div>
+          <div class="form-group">
+            <label>{{form.about_me.label}}</label>
+            {{form.about_me(type="text", class="form-control")}}
+            <!--<input type="text" class="form-control" id="SensorUnit" placeholder="SensorUnit">-->
+          </div>
+          <div class="form-group">
+            <label>{{form.role_id.label}}</label>
+            {{form.role_id(type="checkbox", class="form-control")}}
+            <!--<input type="text" class="form-control" id="SensorUnit" placeholder="SensorUnit">-->
+          </div>
+          <div class="form-group">
+            <label>{{form.confirmed.label}}</label>
+            {{form.confirmed(type="checkbox")}}
+          </div>
+          <div class="form-btn text-center">
+            <button type="submit" class="btn btn-default btn-submit">{{form.submit.label}}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+{%endblock%}
+

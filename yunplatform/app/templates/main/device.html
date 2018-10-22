@@ -1,0 +1,57 @@
+{%extends 'base.html'%}
+{% block page_content %}
+
+<div class="main-container container clearfix">
+  <div class="content" id="content">
+    <div class="shebei-block panel">
+      <h2>设备详情</h2>
+      <div class="shebei-block-content">
+        <div class="list clearfix">
+          <div class="pull-left"><img src="/static/images/shebei.jpg" /></div>
+          <div class="pull-right">
+            <div class="field-title"><span>设备编号：</span>{{device.id}}</div>
+            <div class="field-date"><span>设备名称：</span>{{device.name}}</div>
+            <div class="field-miaoshu"><span>设备描述：</span> {{device.describe}}</div>
+            <div class="field-date"><span>创建时间：</span> {{device.timestamp}}</div>
+            <div class="field-weizhi"><span>设备位置：</span>{{device.location}}</div>
+            <div class="btn-box">
+              {% if current_user.is_admin() or current_user.is_common_user() %}
+                <a class="btn btn-default" href="{{url_for('main.delete_device',did=device.id)}}">删除设备</a>
+                <a class="btn btn-default" href="{{url_for('main.add_sensor',did=device.id)}}">添加传感器</a>
+              {%endif%}
+              <a class="btn btn-default" href="#">共{{device.sensors.count()}}个传感器</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="shebei-block shebei-block-1  panel">
+      <h2>传感器</h2>
+            <div class="shebei-block-content clearfix">
+<div class="list">
+      {% for sensor in sensors %}
+
+          <div class="field-title"><span>传感器编号：</span>{{sensor.id}}</div>
+          <div class="field-miaoshu"><span>传感器名称：</span>{{sensor.name}}</div>
+          <div class="field-miaoshu"><span>传感器类型：</span>data</div>
+          <div class="field-miaoshu"><span>传感器描述：</span>{{sensor.describe}}</div>
+          <div class="field-miaoshu"><span>所属的设备：</span>{{sensor.device.name}}</div>
+          <div class="field-miaoshu"><span>传感器单位：</span>{{sensor.unit}}</div>
+          <div class="field-date"><span>创建时间：</span>{{sensor.timestamp}}</div>
+          <div class="btn-box">
+            {% if current_user.is_admin or current_user.is_common_user %}
+            <a class="btn btn-default" href="{{url_for('main.delete_sensor',sid=sensor.id,did=device.id)}}">删除传感器</a>
+            {% endif %}
+            <a class="btn btn-default" href="{{url_for('main.edit_sensor',sid=sensor.id,did=device.id)}}">编辑传感器</a>
+            <a class="btn btn-default" href="{{url_for('main.data_info',sid=sensor.id)}}">传感器数据</a>
+          </div>
+        </div>
+
+      </div>
+      {% endfor %}
+    </div>
+
+{%endblock%}

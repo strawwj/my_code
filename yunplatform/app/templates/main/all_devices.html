@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block page_content %}
+<div class="main-container container clearfix">
+  <div class="content panel" id="content">
+    <div class="shebei-block">
+      <h2>
+        我的全部设备
+        <a href="{{url_for('main.add_device',id=id)}}">添加设备</a>
+      </h2>
+      <div class="shebei-block-content">
+
+      {%for device in devices.items%}
+          <div class="list clearfix">
+          <div class="pull-left"><img src="/static/images/shebei.jpg" /></div>
+          <div class="pull-right">
+            <div class="field-title"><sapn>设备名称:{{device.name}}【设备ID:{{device.id}}</sapn></div>
+            <div class="field-miaoshu"><span>设备描述：</span>{{device.describe}}</div>
+            <div class="field-date"><span>创建时间：</span>{{device.timestamp}}</div>
+            <div class="field-weizhi"><span>设备位置：</span>{{device.location}}</div>
+            <div class="btn-box">
+              {% if current_user.is_admin() or current_user.is_common_user() %}
+              <a class="btn btn-default" href="{{url_for('main.delete_device',did=device.id)}}">删除设备</a>
+              {% endif %}
+              <a class="btn btn-default" href="{{url_for('main.edit_device',did=device.id)}}">编辑设备</a>
+              <a class="btn btn-default" href="{{url_for('main.device', did=device.id)}}">设备详情</a>
+
+            </div>
+          </div>
+        </div>
+        {%endfor%}
+
+    </div>
+
+  </div>
+  </div>
+</div>
+<div align="center">
+        {% import 'macro/macro.html' as macro %}
+        {{macro.pagination_widget(devices, 'main.all_devices', id=current_user.id)}}
+    </div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{%extends 'base.html'%}
+
+{%block page_content%}
+<div class="main-container container-fluid clearfix" style="margin-left: 170px">
+  <div class="row" >
+    <div class="col-md-10" >
+      <div class="panel admin-content" >
+
+        <div class="form-search">
+          <form class="form-inline" method="post">
+              {{form.hidden_tag()}}
+            <div class="form-group">
+                {{form.data(type="text", class="form-control")}}
+              <!--<input  id="search" placeholder="search">-->
+            </div>
+            <button type="submit" class="btn btn-default btn-primary">搜 索</button>
+          </form>
+        </div>
+        <div class="admin-table" >
+          <table class="table  table-hover" >
+            <thead>
+              <tr>
+                <th>警报原因</th>
+                <th>警报值</th>
+                <th>当前上限</th>
+                <th>当前下限</th>
+                <th>所属传感器</th>
+                <th>报警时间</th>
+                  {% if current_user.is_admin() %}
+                  <th>操作</th>
+                  {%endif%}
+              </tr>
+ </thead>
+
+{%for alert in alerts.items%}
+
+                <tbody>
+                <tr>
+                <td>{{alert.reason}}</td>
+                <td>{{alert.data.data}}</td>
+                <td>{{alert.current_max}}</td>
+                <td>{{alert.current_min}}</td>
+                <td>{{alert.sensor.name}}{{alert.sensor_id}}</td>
+                <td>{{alert.timestamp}}</td>
+                    {% if current_user.is_admin() %}
+                <td>
+                  <a href="{{url_for('main.edit_sensor',sid = alert.sensor_id )}}" class="btn btn-default btn-xs">编辑</a>
+                  <a href="{{url_for('manager.delete_alert',aid = alert.id)}}" class="btn btn-default btn-xs">删除</a>
+                </td>
+                    {%endif%}
+              </tr>
+            </tbody>
+
+            {%endfor%}
+        </table>
+    </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div align="center">
+        {% import 'macro/macro.html' as macro %}
+        {{macro.pagination_widget(alerts, 'main.alert')}}
+    </div>
+{%endblock%}
