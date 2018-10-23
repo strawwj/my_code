@@ -6,8 +6,8 @@ class Config():
     MAIL_SERVER = 'smtp.163.com'
     MAIL_PORT = '25'
     MAIL_USE_TLS = True
-    MAIL_USERNAME = 'wj18333226501@163.com'
-    MAIL_PASSWORD = 'wj042397'
+    MAIL_USERNAME = 'xxxxxx'#163邮箱
+    MAIL_PASSWORD = 'XXXXXX'# 用户端的授权密码
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
