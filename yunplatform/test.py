@@ -6,7 +6,7 @@ import requests
 def get_token() :
     header = {'content-type':'application/json'}
     try :
-        response = requests.get('http://iot.embsky.com/api/1.0/token', headers=header, auth=('1143061388@qq.com', 'wj042397452'), timeout=1);
+        response = requests.get('http://iot.embsky.com/api/1.0/token', headers=header, auth=('XXXXXXXX注册账号', '密码'), timeout=1);
     except :
         print('timeout1')
         return
